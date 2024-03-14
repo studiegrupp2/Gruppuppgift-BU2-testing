@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\GruppuppgiftBU2\Gruppuppgift-BU2.csproj" />
+    <ProjectReference Include="..\Gruppuppgift-BU2\Gruppuppgift-BU2.csproj" />
   </ItemGroup>
 
 </Project>

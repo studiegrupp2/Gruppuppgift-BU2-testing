@@ -8641,8 +8641,8 @@
     },
     "Gruppuppgift-BU2/1.0.0": {
       "type": "project",
-      "path": "../../GruppuppgiftBU2/Gruppuppgift-BU2.csproj",
-      "msbuildProject": "../../GruppuppgiftBU2/Gruppuppgift-BU2.csproj"
+      "path": "../Gruppuppgift-BU2/Gruppuppgift-BU2.csproj",
+      "msbuildProject": "../Gruppuppgift-BU2/Gruppuppgift-BU2.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8663,11 +8663,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/isakgunnardo/Ecutbildning/backend2/BU2-Gruppuppgift/Testning/TestProject1/TestProject1.csproj",
+      "projectUniqueName": "/Users/isakgunnardo/backend2/Gruppuppgift-BU2-testing/TestProject1.csproj",
       "projectName": "TestProject1",
-      "projectPath": "/Users/isakgunnardo/Ecutbildning/backend2/BU2-Gruppuppgift/Testning/TestProject1/TestProject1.csproj",
+      "projectPath": "/Users/isakgunnardo/backend2/Gruppuppgift-BU2-testing/TestProject1.csproj",
       "packagesPath": "/Users/isakgunnardo/.nuget/packages/",
-      "outputPath": "/Users/isakgunnardo/Ecutbildning/backend2/BU2-Gruppuppgift/Testning/TestProject1/obj/",
+      "outputPath": "/Users/isakgunnardo/backend2/Gruppuppgift-BU2-testing/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/isakgunnardo/.nuget/NuGet/NuGet.Config"
@@ -8683,8 +8683,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/isakgunnardo/Ecutbildning/backend2/BU2-Gruppuppgift/GruppuppgiftBU2/Gruppuppgift-BU2.csproj": {
-              "projectPath": "/Users/isakgunnardo/Ecutbildning/backend2/BU2-Gruppuppgift/GruppuppgiftBU2/Gruppuppgift-BU2.csproj"
+            "/Users/isakgunnardo/backend2/Gruppuppgift-BU2/Gruppuppgift-BU2.csproj": {
+              "projectPath": "/Users/isakgunnardo/backend2/Gruppuppgift-BU2/Gruppuppgift-BU2.csproj"
             }
           }
         }

@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Data.Common;
 
 
 namespace TestProject1;
@@ -19,6 +20,19 @@ public class ApplicationFactory : WebApplicationFactory<Gruppuppgift_BU2.Program
     {
         builder.ConfigureTestServices(services =>
         {
+
+            var dbContextDescriptor = services.SingleOrDefault(
+                d => d.ServiceType == typeof(DbContextOptions<Gruppuppgift_BU2.ApplicationContext>)
+            );
+
+            services.Remove(dbContextDescriptor);
+            
+            var dbConnDescriptor = services.SingleOrDefault(
+                d => d.ServiceType == typeof(DbConnection)
+            );
+
+            services.Remove(dbConnDescriptor);
+
             services.AddDbContext<Gruppuppgift_BU2.ApplicationContext>(options =>
             {
                 var path = Environment.GetFolderPath(
@@ -43,7 +57,7 @@ public class ApplicationFactory : WebApplicationFactory<Gruppuppgift_BU2.Program
         });
     }
 
-    public static Gruppuppgift_BU2.ApplicationContext CreateDbContext(IServiceCollection services)
+    static Gruppuppgift_BU2.ApplicationContext CreateDbContext(IServiceCollection services)
     {
         var provider = services.BuildServiceProvider();
 
@@ -108,7 +122,8 @@ public class Test1 : IClassFixture<ApplicationFactory>
         var size = "medium";
         var color = "blue";
         var price = 259.99;
-        var dto = new Gruppuppgift_BU2.CreateProductDto(title, description, category, size, color, price);
+        var thumbnail = "https://media.companys.com/images/blue-denim-izoebeliw-byxor.jpg?i=ACJ8M2Yv2wg/1062307&mw=610";
+        var dto = new Gruppuppgift_BU2.CreateProductDto(title, description, category, size, color, price, thumbnail);
 
         var scope = factory.Services.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<Gruppuppgift_BU2.ApplicationContext>();
@@ -142,6 +157,7 @@ public class Test1 : IClassFixture<ApplicationFactory>
         var size = "medium";
         var color = "blue";
         var price = 259.99;
+        var thumbnail = "https://media.companys.com/images/blue-denim-izoebeliw-byxor.jpg?i=ACJ8M2Yv2wg/1062307&mw=610";
 
         // Rensa databasen för testet.
         var scope = factory.Services.CreateScope();
@@ -152,7 +168,7 @@ public class Test1 : IClassFixture<ApplicationFactory>
 
         var ProductService = scope.ServiceProvider.GetRequiredService<Gruppuppgift_BU2.ProductService>();
 
-        ProductService.CreateProduct(title, description, category, size, color, price);
+        ProductService.CreateProduct(title, description, category, size, color, price, thumbnail);
 
         // when
         var request = await client.DeleteAsync("/manager/delete/1");
